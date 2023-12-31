@@ -15,7 +15,7 @@
         </v-col>
       </v-row>
       <TotalCustomerSection class="mt-8" />
-      <CustomerTableSection class="mt-6" />
+      <CustomerTableSection :customers="customers" class="mt-6" />
       <CustomerAddSection
         v-if="isAdd"
         :show="isAdd"
@@ -36,15 +36,146 @@ const toast = useToast();
 
 const isAdd = ref(false);
 
+const customers = ref([
+  {
+    name: "Jane Cooper",
+    company: "Microsoft",
+    phoneNumber: "2555550118",
+    email: "jane@microsoft.com",
+    country: "United states",
+    isActive: true,
+    addressDetails: [
+      {
+        number: "No 279",
+        street: "Wellington Street",
+        city: "Melbourne,VIC",
+      },
+      {
+        number: "No 29",
+        street: "Blackburn Rd",
+        city: "Melbourne,VIC",
+      },
+    ],
+  },
+  {
+    name: "Floyd Miles",
+    company: "Yahoo",
+    phoneNumber: "2055550100",
+    email: "floyd@yahoo.com",
+    country: "Kiribati",
+    isActive: false,
+    addressDetails: [
+      {
+        number: "No 279",
+        street: "Wellington Street",
+        city: "Melbourne,VIC",
+      },
+    ],
+  },
+  {
+    name: "Ronald Richards",
+    company: "Adobe",
+    phoneNumber: "3025550107",
+    email: "ronald@adobe.com",
+    country: "Israel",
+    isActive: false,
+  },
+  {
+    name: "Marvin McKinney",
+    company: "Tesla",
+    phoneNumber: "2525501261",
+    email: "marvin@tesla.com",
+    country: "Iran",
+    isActive: true,
+  },
+  {
+    name: "Jerome Bell",
+    company: "Google",
+    phoneNumber: "6295550129",
+    email: "jerome@google.com",
+    country: "Reunion",
+    isActive: true,
+  },
+  {
+    name: "Kathryn Murphy",
+    company: "Microsoft",
+    phoneNumber: "4065550120",
+    email: "kathryn@microsoft.com",
+    country: "Curacao",
+    isActive: true,
+  },
+  {
+    name: "Jacob Jones",
+    company: "Yahoo",
+    phoneNumber: "2085550112",
+    email: "jacob@yahoo.com",
+    country: "Brazil",
+    isActive: true,
+  },
+  {
+    name: "Kristin Watson",
+    company: "Facebook",
+    phoneNumber: "7045550127",
+    email: "kristin@facebook.com",
+    country: "Aland islands",
+    isActive: false,
+  },
+  {
+    name: "Marvin McKinney",
+    company: "Tesla",
+    phoneNumber: "2525501261",
+    email: "marvin@tesla.com",
+    country: "Iran",
+    isActive: true,
+  },
+  {
+    name: "Jerome Bell",
+    company: "Google",
+    phoneNumber: "6295550129",
+    email: "jerome@google.com",
+    country: "Reunion",
+    isActive: true,
+  },
+  {
+    name: "Kathryn Murphy",
+    company: "Microsoft",
+    phoneNumber: "4065550120",
+    email: "kathryn@microsoft.com",
+    country: "Curacao",
+    isActive: true,
+  },
+  {
+    name: "Jacob Jones",
+    company: "Yahoo",
+    phoneNumber: "2085550112",
+    email: "jacob@yahoo.com",
+    country: "Brazil",
+    isActive: true,
+  },
+  {
+    name: "Kristin Watson",
+    company: "Facebook",
+    phoneNumber: "7045550127",
+    email: "kristin@facebook.com",
+    country: "Aland islands",
+    isActive: false,
+  },
+]);
+
 const openDialog = () => {
   isAdd.value = true;
 };
 
 const onConfirm = (customerData) => {
-  console.log(
-    "🚀 ~ file: Customers.vue:39 ~ onConfirm ~ customerData:",
-    customerData
-  );
+  
+  const addedData = {
+    ...customerData.customer,
+    isActive:true,
+    addressDetails:customerData.addressDetails
+  }
+  console.log("🚀 ~ file: Customers.vue:172 ~ onConfirm ~ addedData:", addedData)
+
+  customers.value.push(addedData);
 
   toast.success("Transaction added.");
   isAdd.value = false;

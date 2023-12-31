@@ -1,4 +1,28 @@
-# base
+# Set up project
+
+```
+Go to repo and clone the project. (https://github.com/AmilRubasinghe/webco-assignment)
+
+# Install node 20.10.0
+nvm install 20.10.0
+
+(If not install nvm , First Need to be install NVM)
+
+# Use installed version
+nvm use 20.10.0
+
+# Install Dependency
+npm i
+
+# Run development project 
+npm run dev
+
+# Display project
+Go http://localhost:3000/customers
+(If Not show please refresh the page)
+
+```
+
 
 ## Project setup
 

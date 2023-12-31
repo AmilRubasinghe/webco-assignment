@@ -10,11 +10,8 @@
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
-    "bootstrap": "^5.3.2",
-    "bootstrap-vue-next": "^0.15.5",
     "core-js": "^3.29.0",
     "roboto-fontface": "*",
-    "unplugin-vue-components": "^0.26.0",
     "vue-router": "^4.0.0",
     "vue-toastification": "^2.0.0-rc.5",
     "vuetify": "^3.0.0"

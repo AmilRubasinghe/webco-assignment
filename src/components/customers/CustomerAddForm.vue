@@ -40,7 +40,7 @@
             ></v-text-field>
 
             <v-text-field
-              v-model="customer.contactNumber"
+              v-model="customer.phoneNumber"
               :rules="[
                 rules.required,
                 rules.onlyNumber,
@@ -181,7 +181,11 @@ const isDialog = ref(props.show);
 
 const customer = ref({});
 
-const address = ref({});
+const address = ref({
+  number:'',
+  street:'',
+  city:''
+});
 
 const isFormValid = ref(false);
 
@@ -240,7 +244,8 @@ const addressSubmit = () => {
   addressDetails.value.push(address.value);
 
   address.value = {};
-  addressForm.value.reset();
+
+
   addressForm.value.resetValidation();
 };
 

@@ -7,9 +7,6 @@ import ViteFonts from "unplugin-fonts/vite";
 import { defineConfig } from "vite";
 import { fileURLToPath, URL } from "node:url";
 
-import Components from "unplugin-vue-components/vite";
-import { BootstrapVueNextResolver } from "unplugin-vue-components/resolvers";
-
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -23,9 +20,7 @@ export default defineConfig({
         configFile: "src/styles/settings.scss",
       },
     }),
-    Components({
-      resolvers: [BootstrapVueNextResolver()],
-    }),
+
     ViteFonts({
       google: {
         families: [

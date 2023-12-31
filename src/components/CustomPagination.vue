@@ -1,17 +1,20 @@
-<!-- <template>
-  <div>
+<template>
+  <div class="pt-5 pl-3">
     <v-row no-gutters justify-space-between>
       <v-col
-        ><div class="table-pagination">Showing data 1 to 8 of 256K entries</div>
+        ><div class="table-pagination">
+          Showing page {{ pagiPage }} to {{ pagiPageCount }} of
+          {{ pagiTotalRecode}} entries
+        </div>
       </v-col>
       <v-col cols="3">
         <div>
           <v-pagination
             size="25"
             density="compact"
-            v-model="page"
+            v-model="pagiPage"
             active-color="#5A32EA"
-            :length="pageCount"
+            :length="pagiPageCount"
           ></v-pagination>
         </div>
       </v-col>
@@ -19,7 +22,7 @@
   </div>
 </template>
 <script setup>
-import { defineProps } from "vue";
+import { ref, defineProps } from "vue";
 
 const props = defineProps({
   page: {
@@ -30,9 +33,14 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-  totalPage: {
+  totalRecode: {
     type: Number,
     required: true,
   },
 });
-</script> -->
+
+const pagiPage = ref(props.page);
+const pagiPageCount = ref(props.pageCount);
+const pagiTotalRecode = ref(props.totalRecode);
+
+</script>
